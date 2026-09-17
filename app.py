@@ -58,3 +58,7 @@ async def get_device(name: str):
             return device
 
     raise HTTPException(status_code=404, detail="Device not found")
+
+@app.get("/stats")
+async def get_stats():
+    return {"average_temp": average_temp(readings)}
